@@ -3,13 +3,14 @@
   <%- include('./partials/head.ejs') %>
   <body>
     <%- include('./partials/nav.ejs') %>
-    <div class="information">
-      <h2>News Snapshot</h2>
-      <% if (information.length > 0) { %> <% information.forEach(info => { %>
-      <h3 class="title"><%= info.title %></h3>
-      <p class="snippet"><%= info.snippet %></p>
+    <div class="messages">
+      <h2>Latest Messages</h2>
+      <% if (messages.length > 0) { %> <% messages.forEach(item => { %>
+      <h3 class="user"><%= item.user %></h3>
+      <h4 class="added"><%= item.added %></h4>
+      <p class="text"><%= item.text %></p>
       <% }) %> <% } else { %>
-      <p>There is no information to display.</p>
+      <p>There are no messages to display.</p>
       <% } %>
     </div>
     <%- include('./partials/footer.ejs') %>
