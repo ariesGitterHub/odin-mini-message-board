@@ -8,14 +8,14 @@
   --max-card-width: 65ch;
 
   --white: #ffffff;
-  --mid-gray: #dbcaea;
+  --black: #000000;
 
   --text-color: #242221;
   --other-text-color: #242221ad;
   --nav-footer-color: #b1c3f0;
   --board-color: #847131;
   --card-color: #d2d2d7;
-  --hover-color: #9f7c07;
+  --hover-color: #a68107;
 }
 
 * {
@@ -76,12 +76,7 @@ nav {
 
 .app-title {
   height: fit-content;
-  font-family: var(--font-title);
 }
-
-/* .app-sub-title {
-  font-family: var(--font-title);
-} */
 
 nav ul {
   /* height: 2.35rem; */
@@ -95,7 +90,7 @@ nav ul {
   gap: 0.5rem;
   /* background-color: var(--card-color); */
   border-radius: var(--border-radius);
-  padding: 0 0.25rem;
+  /* padding: 0 0.25rem; */
 }
 
 nav li, button {
@@ -107,7 +102,6 @@ nav li, button {
   border: 0.125rem solid var(--text-color);
   border-radius: var(--border-radius);
   box-shadow: inset 0 0.125rem 0.5rem var(--other-text-color);
-  font-family: var(--font-title);
   padding: 0.25rem 0.5rem;
 }
 
@@ -141,7 +135,6 @@ color: var(--white);
 
 .page-title {
     color: var(--card-color);
-font-family: var(--font-title);
 text-align: left;
 text-transform: uppercase;
 }
@@ -183,20 +176,14 @@ background-color: var(--white);
 }
 
 label {
-    font-family: var(--font-title);
     margin-bottom: 0.25rem;
 }
 
 input, textarea {
     background-color: var(--white);
     border-radius: var(--border-radius);
-font-family: var(--font-text);
 margin-bottom: 1rem;
 padding: 0.25rem;
-}
-
-.user-name, input, label {
-    font-weight: 800;
 }
 
 .added-when,
@@ -222,9 +209,7 @@ padding: 0.25rem;
       background-color: var(--card-color);
   border-radius: var(--border-radius);
  color: var(--text-color);
- font-family: var(--font-title);
  padding: 0.5rem;
- /* text-transform: uppercase; */
 }
 
 textarea {
@@ -233,13 +218,21 @@ textarea {
 
 footer {
   background-color: var(--nav-footer-color);
-  font-family: var(--font-title);
   padding: 0.5rem;
   text-align: center;
 }
 
+/* font-family = --font-title */
+.app-title, nav li, button, .page-title, label, .no-message-to-show, .page-not-found, .footer {
+  font-family: var(--font-title);
+}
+
+.user-name, input, label {
+    font-weight: 800;
+}
+
 /* font-sizes master for certain elements */
-li, label, button {
+li, .user-name, label, button {
     font-size: 1.35rem;
 }
 
