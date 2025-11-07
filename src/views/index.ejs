@@ -3,14 +3,22 @@
   <%- include('./partials/head.ejs') %>
   <body>
     <%- include('./partials/nav.ejs') %>
-    <div class="messages">
-      <h2>Latest Messages</h2>
+    <div class="main-board">
+      <h2 class="page-title">Main Board - Latest Messages</h2>
       <% if (messages.length > 0) { %> <% messages.forEach(item => { %>
-      <h3 class="user"><%= item.user %></h3>
-      <h4 class="added"><%= item.added %></h4>
-      <p class="text"><%= item.text %></p>
+      <div class="message-cards">
+        <div class="message-header">
+          <h3 class="user-name"><%= item.user %></h3>
+          <p class="added-when"><%= item.added %></p>
+          <p class="id-order">Msg#: <%= item.id + 1 %></p>
+        </div>
+        <hr />
+        <p class="text-message"><%= item.text %></p>
+        <!-- <hr /> -->
+        <button class="new-posting-button"><a href="/new">New Posting</a></button>
+      </div>
       <% }) %> <% } else { %>
-      <p>There are no messages to display.</p>
+      <p class="no-message-to-show">Currently, there are no messages to display.</p>
       <% } %>
     </div>
     <%- include('./partials/footer.ejs') %>

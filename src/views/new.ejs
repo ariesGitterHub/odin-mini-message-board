@@ -3,14 +3,16 @@
   <%- include('./partials/head.ejs') %>
   <body>
     <%- include('./partials/nav.ejs') %>
-    <div class="create">
+    <div class="new-posting">
+      <h2 class="page-title">New Posting - Create Message</h2>
       <form method="POST" action="/">
         <label for="user">Name</label>
         <input type="text" id="user" name="user" required />
         <label for="text">Message</label>
         <textarea id="text" name="text" required></textarea>
-        <button>Submit</button>
+        <button>Submit Post</button>
       </form>
+      </div>
     </div>
     <%- include('./partials/footer.ejs') %>
   </body>

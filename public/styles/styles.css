@@ -1,0 +1,262 @@
+:root {
+  --font-title: "Cabin Sketch", sans-serif;
+  --font-text: "Funnel Sans", sans-serif;
+  
+  --border-radius: 0.5rem;
+  /* --card-width: 300px; */
+  --card-width: 90vw;
+  --max-card-width: 65ch;
+
+  --white: #ffffff;
+  --mid-gray: #dbcaea;
+
+  --text-color: #242221;
+  --other-text-color: #242221ad;
+  --nav-footer-color: #b1c3f0;
+  --board-color: #847131;
+  --card-color: #d2d2d7;
+  --hover-color: #9f7c07;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  color: var(--text-color);
+  font-family: var(--font), sans-serif;
+  height: 100%;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+input,
+textarea,
+button {
+  border: none;
+  outline: none;
+}
+
+/* Disable text selection on mobile */
+*::selection {
+  background-color: transparent;
+  color: inherit;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* full viewport height */
+  font-family: var(--font-text);
+}
+
+
+nav {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background-color: var(--nav-footer-color);
+  padding: 0.5rem;
+  text-align: center;
+}
+
+.app-title {
+  height: fit-content;
+  font-family: var(--font-title);
+}
+
+/* .app-sub-title {
+  font-family: var(--font-title);
+} */
+
+nav ul {
+  /* height: 2.35rem; */
+  height: fit-content;
+  /* width: var(--card-width); */
+  width: fit-content;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-evenly;
+  gap: 0.5rem;
+  /* background-color: var(--card-color); */
+  border-radius: var(--border-radius);
+  padding: 0 0.25rem;
+}
+
+nav li, button {
+  height: fit-content;
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 0.125rem solid var(--text-color);
+  border-radius: var(--border-radius);
+  box-shadow: inset 0 0.125rem 0.5rem var(--other-text-color);
+  font-family: var(--font-title);
+  padding: 0.25rem 0.5rem;
+}
+
+nav li:hover {
+  background-color: var(--hover-color);
+    border: 0.125rem solid var(--white);
+color: var(--white);
+}
+
+
+
+button:hover {
+  background-color: var(--hover-color);
+    border: 0.125rem solid var(--white);
+color: var(--white);
+}
+
+
+.main-board, .new-posting {
+
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: start;
+  gap: 1rem;
+    flex: 1; /* pushes the footer down */
+        background: linear-gradient(05deg, var(--board-color), var(--hover-color));
+  padding: 1rem;
+}
+
+.page-title {
+    color: var(--card-color);
+font-family: var(--font-title);
+text-align: left;
+text-transform: uppercase;
+}
+
+.message-cards, form {
+  height: fit-content;
+  width: var(--card-width);
+  max-width: var(--max-card-width);
+
+    display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  /* align-items: center;
+  justify-content: start; */
+  background-color: var(--card-color);
+  border-radius: var(--border-radius);
+box-shadow: inset 0 0.125rem 0.5rem var(--other-text-color);
+  padding: 0.5rem;
+}
+
+.message-cards:hover {
+background-color: var(--white);
+  transform: scale(1.05);
+}
+
+.message-header {
+  height: fit-content;
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: space-between;
+  justify-content: space-between;
+  margin-bottom: 0.25rem;
+}
+
+.user-name, label {
+  margin-bottom: 0.125rem;
+}
+
+label {
+    font-family: var(--font-title);
+    margin-bottom: 0.25rem;
+}
+
+input, textarea {
+    background-color: var(--white);
+    border-radius: var(--border-radius);
+font-family: var(--font-text);
+margin-bottom: 1rem;
+padding: 0.25rem;
+}
+
+.user-name, input, label {
+    font-weight: 800;
+}
+
+.added-when,
+.id-order {
+  color: var(--other-text-color);
+  text-transform: uppercase;
+}
+
+/* .new-posting-button {
+    margin-top: 0.25rem;
+} */
+
+/* WORD BREAKING HERE!!! For super long words entered by the user.*/
+.text-message {
+  padding: 0.5rem 0;
+  overflow-wrap: break-word;
+  word-wrap: break-word; /* legacy */
+  word-break: break-word; /* extra robustness */
+}
+
+.no-message-to-show, .page-not-found {
+    max-width: 23ch;
+      background-color: var(--card-color);
+  border-radius: var(--border-radius);
+ color: var(--text-color);
+ font-family: var(--font-title);
+ padding: 0.5rem;
+ /* text-transform: uppercase; */
+}
+
+textarea {
+    height: 4rem;
+}
+
+footer {
+  background-color: var(--nav-footer-color);
+  font-family: var(--font-title);
+  padding: 0.5rem;
+  text-align: center;
+}
+
+/* font-sizes master for certain elements */
+li, label, button {
+    font-size: 1.35rem;
+}
+
+.page-title {
+    font-size: 1.25rem;
+}
+
+.text-message, input, textarea {
+    font-size: 1.125rem;
+}
+
+.added-when, .id-order, footer {
+        font-size: 1rem;
+}
+
+.no-message-to-show, .page-not-found {
+    font-size: 2.25rem;
+}
+
+
