@@ -37,9 +37,23 @@ router.post("/", validateMessage, (req, res) => {
     user,
     added: formatDate(new Date()),
     text,
+    likes: 0,
   });
   res.redirect("/");
 });
+
+// Likes counter
+router.post("/like/:id", (req, res) => {
+  const id = parseInt(req.params.id);
+  const message = messages.find((m) => m.id === id);
+
+  if (message) {
+    message.likes += 1; // Increment the count
+  }
+
+  res.redirect("/"); // Refresh the page!!!
+});
+
 
 // This can also be moved to app.js for a single global 404 view. Otherwise, it is fine here.
 router.use((req, res) => {

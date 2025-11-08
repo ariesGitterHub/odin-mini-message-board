@@ -12,7 +12,19 @@
         <p class="id-order">Msg#: <%= item.id + 1 %></p>
         <hr />
         <p class="text-message"><%= item.text %></p>
-        <a href="/new">New Posting</a>
+        <div class="bottom-card-items">
+          <a href="/new">New Posting</a>
+          <form method="POST" action="/like/<%= item.id %>">
+            <button>
+              <% if (item.likes > 0) { %>
+              <p>💙</p>
+              <% } else { %>
+              <p>🤍</p>
+              <% } %> &nbsp;
+              <p class="likes-number"><%= item.likes %></p>
+            </button>
+          </form>
+        </div>
       </div>
       <% }) %> <% } else { %>
       <p class="no-message-to-show">
