@@ -1,9 +1,8 @@
 :root {
   --font-title: "Cabin Sketch", sans-serif;
   --font-text: "Funnel Sans", sans-serif;
-  
+
   --border-radius: 0.5rem;
-  /* --card-width: 300px; */
   --card-width: 90vw;
   --max-card-width: 65ch;
 
@@ -16,6 +15,7 @@
   --board-color: #847131;
   --card-color: #d2d2d7;
   --hover-color: #a68107;
+  --focus-color: #1d3f96;
 }
 
 * {
@@ -27,8 +27,14 @@
 html,
 body {
   color: var(--text-color);
-  font-family: var(--font), sans-serif;
   height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* full viewport height */
+  font-family: var(--font-text);
 }
 
 ul,
@@ -48,19 +54,17 @@ button {
   outline: none;
 }
 
+/* Makes a element and button element focus rings identical */
+:focus {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+
 /* Disable text selection on mobile */
 *::selection {
   background-color: transparent;
   color: inherit;
 }
-
-body {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh; /* full viewport height */
-  font-family: var(--font-text);
-}
-
 
 nav {
   display: flex;
@@ -68,7 +72,7 @@ nav {
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  gap: 0.5rem;
+  gap: 0.75rem;
   background-color: var(--nav-footer-color);
   padding: 0.5rem;
   text-align: center;
@@ -78,22 +82,19 @@ nav {
   height: fit-content;
 }
 
-nav ul {
-  /* height: 2.35rem; */
+.nav-link-container {
   height: fit-content;
-  /* width: var(--card-width); */
   width: fit-content;
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: row;
   align-items: center;
   justify-content: space-evenly;
   gap: 0.5rem;
-  /* background-color: var(--card-color); */
   border-radius: var(--border-radius);
-  /* padding: 0 0.25rem; */
 }
 
-nav li, button {
+a,
+button {
   height: fit-content;
   width: fit-content;
   display: flex;
@@ -102,88 +103,73 @@ nav li, button {
   border: 0.125rem solid var(--text-color);
   border-radius: var(--border-radius);
   box-shadow: inset 0 0.125rem 0.5rem var(--other-text-color);
+  /* outline: 0.125rem dashed blue; */
   padding: 0.25rem 0.5rem;
 }
 
-nav li:hover {
-  background-color: var(--hover-color);
-    border: 0.125rem solid var(--white);
-color: var(--white);
-}
-
-
-
+a:hover,
 button:hover {
   background-color: var(--hover-color);
-    border: 0.125rem solid var(--white);
-color: var(--white);
+  border: 0.125rem solid var(--white);
+  color: var(--white);
 }
 
+/* REMINDER - use :focus-visible when you want keyboard users and screen readers to see focus indicators, BUT not when clicking with a mouse */
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+.submit-button:focus-visible {
+  outline: 0.25rem dashed var(--focus-color);
+}
 
-.main-board, .new-posting {
-
+.main-board,
+.new-posting {
   display: flex;
   flex-direction: column;
-  flex-wrap: wrap;
   align-items: center;
   justify-content: start;
   gap: 1rem;
-    flex: 1; /* pushes the footer down */
-        background: linear-gradient(05deg, var(--board-color), var(--hover-color));
+  flex: 1; /* pushes the footer down */
+  background: linear-gradient(05deg, var(--board-color), var(--hover-color));
   padding: 1rem;
 }
 
 .page-title {
-    color: var(--card-color);
-text-align: left;
-text-transform: uppercase;
+  color: var(--card-color);
+  text-align: left;
+  text-transform: uppercase;
 }
 
-.message-cards, form {
+.message-cards,
+form {
   height: fit-content;
   width: var(--card-width);
   max-width: var(--max-card-width);
-
-    display: flex;
+  display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  /* align-items: center;
-  justify-content: start; */
   background-color: var(--card-color);
   border-radius: var(--border-radius);
-box-shadow: inset 0 0.125rem 0.5rem var(--other-text-color);
+  box-shadow: inset 0 0.125rem 0.5rem var(--other-text-color);
   padding: 0.5rem;
 }
 
 .message-cards:hover {
-background-color: var(--white);
+  background-color: var(--white);
   transform: scale(1.05);
 }
 
-.message-header {
-  height: fit-content;
-  width: fit-content;
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  align-items: space-between;
-  justify-content: space-between;
-  margin-bottom: 0.25rem;
-}
-
-.user-name, label {
+.user-name,
+label {
   margin-bottom: 0.125rem;
 }
 
-label {
-    margin-bottom: 0.25rem;
-}
-
-input, textarea {
-    background-color: var(--white);
-    border-radius: var(--border-radius);
-margin-bottom: 1rem;
-padding: 0.25rem;
+input,
+textarea {
+  background-color: var(--white);
+  border-radius: var(--border-radius);
+  margin-bottom: 1rem;
+  padding: 0.25rem;
 }
 
 .added-when,
@@ -192,9 +178,9 @@ padding: 0.25rem;
   text-transform: uppercase;
 }
 
-/* .new-posting-button {
-    margin-top: 0.25rem;
-} */
+textarea {
+  height: 4rem;
+}
 
 /* WORD BREAKING HERE!!! For super long words entered by the user.*/
 .text-message {
@@ -204,16 +190,13 @@ padding: 0.25rem;
   word-break: break-word; /* extra robustness */
 }
 
-.no-message-to-show, .page-not-found {
-    max-width: 23ch;
-      background-color: var(--card-color);
+.no-message-to-show,
+.page-not-found {
+  max-width: 23ch;
+  background-color: var(--card-color);
   border-radius: var(--border-radius);
- color: var(--text-color);
- padding: 0.5rem;
-}
-
-textarea {
-    height: 4rem;
+  color: var(--text-color);
+  padding: 0.5rem;
 }
 
 footer {
@@ -223,33 +206,54 @@ footer {
 }
 
 /* font-family = --font-title */
-.app-title, nav li, button, .page-title, label, .no-message-to-show, .page-not-found, .footer {
+.app-title,
+a,
+button,
+.page-title,
+label,
+.no-message-to-show,
+.page-not-found,
+.footer {
   font-family: var(--font-title);
 }
 
-.user-name, input, label {
-    font-weight: 800;
+.user-name,
+input,
+label {
+  font-weight: 600;
 }
 
 /* font-sizes master for certain elements */
-li, .user-name, label, button {
-    font-size: 1.35rem;
+a,
+.user-name,
+label,
+button {
+  font-size: 1.35rem;
 }
 
 .page-title {
-    font-size: 1.25rem;
+  font-size: 1.25rem;
 }
 
-.text-message, input, textarea {
-    font-size: 1.125rem;
+.text-message,
+input,
+textarea {
+  font-size: 1.125rem;
 }
 
-.added-when, .id-order, footer {
-        font-size: 1rem;
+.added-when,
+.id-order,
+footer {
+  font-size: 1rem;
 }
 
-.no-message-to-show, .page-not-found {
-    font-size: 2.25rem;
+.no-message-to-show,
+.page-not-found {
+  font-size: 2.25rem;
 }
 
-
+@media (max-width: 600px) {
+  nav {
+    flex-direction: column;
+  }
+}

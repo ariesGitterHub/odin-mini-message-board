@@ -3,21 +3,22 @@ function formatDate(date) {
     date = new Date(date);
   }
 
-  const options = {
-    timeZone: "America/New_York",
-    weekday: "long",
+  const formatter = new Intl.DateTimeFormat("en-US", {
+    timeZone: "America/New_York", // Ensures use of EDT/EST
+    weekday: "short",
     year: "numeric",
-    month: "long",
+    month: "short",
     day: "2-digit",
     hour: "numeric",
     minute: "2-digit",
     second: "2-digit",
     hour12: true,
     timeZoneName: "short",
-  };
+  });
 
-  const formatted = date.toLocaleString("en-US", options);
-  return formatted.replace(",", " at");
+  const formattedDate = formatter.format(date).replace(",", " - ");
+
+  return formattedDate;
 }
 
-module.exports = { formatDate };
+module.exports = formatDate;
