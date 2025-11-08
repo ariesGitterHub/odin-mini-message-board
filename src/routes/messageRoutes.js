@@ -1,5 +1,7 @@
 const express = require("express");
 const router = express.Router();
+
+// Local modules
 const formatDate = require("../helpers/dateHelper");
 const validateMessage = require("../middlewares/validateMessage");
 const messages = require("../data/messages");
@@ -10,7 +12,11 @@ const messages = require("../data/messages");
 router.get("/", (req, res) => {
   //   res.render("index", { title: "Main Board", messages: messages });
   // Reminder that I only need messages once if it is the same term...
-  res.render("index", { title: "Main Board", messages });
+  res.render("index", {
+    title: "Main Board",
+    messages,
+    sessionID: req.sessionID,
+  });
 });
 // New posting page
 router.get("/new", (req, res) => {
@@ -38,20 +44,51 @@ router.post("/", validateMessage, (req, res) => {
     added: formatDate(new Date()),
     text,
     likes: 0,
+    likedBy: [],
   });
   res.redirect("/");
 });
 
 // Likes counter
+// router.post("/like/:id", (req, res) => {
+//   const id = parseInt(req.params.id);
+//   const message = messages.find((m) => m.id === id);
+
+//   if (message) {
+//     message.likes += 1; // Increment the count
+//   }
+
+//   res.redirect("/"); // Refresh the page!!!
+// });
+
+// "Like toggling; Improved like counter that can only increment or decrement once per session ID using "express-session" package
 router.post("/like/:id", (req, res) => {
   const id = parseInt(req.params.id);
   const message = messages.find((m) => m.id === id);
+  const userIdentifier = req.sessionID; // Unique per visitor!!!
 
-  if (message) {
-    message.likes += 1; // Increment the count
+  // Guard against messages that don't exist
+  if (!message) {
+    return res.status(404).send("Message not found");
   }
 
-  res.redirect("/"); // Refresh the page!!!
+  // Toggles like vs unlike
+  const hasLiked = message.likedBy.includes(userIdentifier);
+
+    if (hasLiked) {
+      message.likes -= 1;
+      message.likedBy = message.likedBy.filter((u) => u !== userIdentifier);
+    } else {
+      message.likes += 1;
+      message.likedBy.push(userIdentifier);
+    }
+
+  // Safety prevents negative like counts
+  message.likes = Math.max(message.likes, 0);
+
+  // console.log(`userIdentifier = ${userIdentifier}`);
+
+  res.redirect("/");
 });
 
 

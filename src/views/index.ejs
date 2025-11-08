@@ -15,13 +15,19 @@
         <div class="bottom-card-items">
           <a href="/new">New Posting</a>
           <form method="POST" action="/like/<%= item.id %>">
-            <button>
+            <!-- <button>
               <% if (item.likes > 0) { %>
               <p>💙</p>
               <% } else { %>
               <p>🤍</p>
               <% } %> &nbsp;
               <p class="likes-number"><%= item.likes %></p>
+            </button> -->
+            <!-- Below is better code... -->
+             <button>
+              <span><%= item.likes > 0 ? "💙" : "🤍" %></span>
+              &nbsp;
+              <span class="likes-number"><%= item.likes %></span>
             </button>
           </form>
         </div>

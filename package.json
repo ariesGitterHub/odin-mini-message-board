@@ -3,6 +3,7 @@
     "dotenv": "^17.2.3",
     "ejs": "^3.1.10",
     "express": "^5.1.0",
+    "express-session": "^1.18.2",
     "morgan": "^1.10.1"
   },
   "name": "odin-mini-message-board",
@@ -23,6 +24,5 @@
   "bugs": {
     "url": "https://github.com/ariesGitterHub/odin-mini-message-board/issues"
   },
-  "homepage": "https://github.com/ariesGitterHub/odin-mini-message-board#readme",
-  "devDependencies": {}
+  "homepage": "https://github.com/ariesGitterHub/odin-mini-message-board#readme"
 }

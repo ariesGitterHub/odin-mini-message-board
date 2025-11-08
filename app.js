@@ -1,6 +1,7 @@
 require("dotenv").config();
 const express = require("express");
 const morgan = require("morgan");
+const session = require("express-session");
 
 const path = require("path"); // To handle file paths
 
@@ -13,6 +14,15 @@ const app = express();
 app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
 app.use(morgan("dev"));
+app.use(
+  session({
+    secret: process.env.SESSION_SECRET || "supersecret",
+    resave: false,
+    saveUninitialized: true,
+    cookie: { maxAge: 1000 * 60 * 60 * 24 }, // 1 day
+  })
+);
+
 
 // View Engine
 // Set the views directory (since views is inside the src folder)
