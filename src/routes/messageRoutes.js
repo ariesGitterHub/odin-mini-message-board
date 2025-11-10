@@ -7,7 +7,6 @@ const validateMessage = require("../middlewares/validateMessage");
 const messages = require("../data/messages");
 
 // Routes
-
 // Main board page
 router.get("/", (req, res) => {
   //   res.render("index", { title: "Main Board", messages: messages });

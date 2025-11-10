@@ -30,7 +30,9 @@ app.use(
 app.set("views", path.join(__dirname, "src", "views"));
 app.set("view engine", "ejs");
 
+// App routes
 app.use("/", messageRoutes);
+
 // Server
 app.listen(PORT, (error) => {
   if (error) {

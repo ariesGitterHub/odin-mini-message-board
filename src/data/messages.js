@@ -2,9 +2,9 @@
 const messages = [
   {
     id: 0,
-    user: "Mad Muffin Man",
+    user: "The Mad Muffin Man",
     added: "Sat - Nov 01, 2025, 1:37:47 PM EST",
-    text: "Hi neighbors! Welcome to our neighborhood message board. The use of foul language is encouraged.",
+    text: "Hi neighbors! Welcome to our local message board. The use of foul language is encouraged and appreciated.",
     likes: 2,
     likedBy: [], // This tracks which users have liked this posting
   },
@@ -12,7 +12,7 @@ const messages = [
     id: 1,
     user: "Amandaconda",
     added: "Mon - Nov 03, 2025, 3:41:11 PM EST",
-    text: "FUN!!! 😀",
+    text: "Effing fun!!! 😀",
     likes: 3,
     likedBy: [], // This tracks which users have liked this posting
   },
@@ -20,15 +20,15 @@ const messages = [
     id: 2,
     user: "James Paul",
     added: "Tue - Nov 04, 2025, 8:12:01 AM EST",
-    text: "Don't forget to vote today...🎃",
+    text: "Speaking of swearing a lot, don't forget to vote today.🎃",
     likes: 3,
     likedBy: [], // This tracks which users have liked this posting
   },
   {
     id: 3,
-    user: "Montague The Dog",
+    user: "Montague The Dog 🐶",
     added: "Tue - Nov 04, 2025, 12:11:36 PM EST",
-    text: "Roses are red, violets are blue, I'm hungry for snackies, why aren't you? 🐶🍖",
+    text: "Roses are red, violets are blue, I'm hungry for snackies, why aren't you? 🍗🥓🧀🍕🍖",
     likes: 5,
     likedBy: [], // This tracks which users have liked this posting
   },
