@@ -11,13 +11,11 @@
 
   --text-color: #242221;
   --other-text-color: #242221ad;
-  --nav-footer-color: #b1c3f0;
+  --nav-footer-color: #6d9ced;
   --board-color: #6c5a20;
-  /* --card-color: #e9e9f1; */
   --card-color: #afafc7;
   --hover-color: #a27d02;
   --focus-color: #1d3f96;
-  /* --hover-color: #eeba0d; */
 }
 
 * {
@@ -152,7 +150,6 @@ button:focus-visible {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  /* background-color: var(--card-color); */
   background: linear-gradient(05deg, var(--card-color), var(--white));
   border-radius: var(--border-radius);
   box-shadow: inset 0 0.125rem 0.5rem var(--other-text-color);
@@ -160,7 +157,6 @@ button:focus-visible {
 }
 
 .message-cards:hover {
-  /* background-color: var(--white); */
   background: linear-gradient(05deg, var(--white), var(--white));
   transform: scale(1.05);
 }
@@ -227,7 +223,7 @@ label,
 .bottom-card-items,
 .no-message-to-show,
 .page-not-found,
-.footer {
+footer {
   font-family: var(--font-title);
 }
 
@@ -252,13 +248,13 @@ button,
 
 .text-message,
 input,
-textarea {
+textarea, er,
+footer {
   font-size: 1.125rem;
 }
 
 .added-when,
-.id-order,
-footer {
+.id-order {
   font-size: 1rem;
 }
 
