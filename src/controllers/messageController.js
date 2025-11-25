@@ -4,25 +4,27 @@ const { body, validationResult, matchedData } = require("express-validator");
 
 const {
   getMessages,
-  //   getMessage,
+  // getMessage,
   addMessage,
-  //   updateMessage,
-  deleteMessage,
-  //   searchMessages,
+  // updateMessage,
+  // deleteMessage,
+  // searchMessages,
   getMessageById,
   updateLikes,
 } = require("../db/queries");
 
+const formatDate = require("../helpers/dateHelper");
+
 // Error messages
-const authorLengthErr = "must be between 5 and 30 characters.";
+const authorLengthErr = "must be between 1 and 30 characters.";
 const textLengthErr = "cannot exceed 200 characters.";
 
 // Below, use .matches() only for character checking, keep .isLength() for length checking
 const validateMessages = [
   body("author")
     .trim()
-    .isLength({ min: 5, max: 30 })
-    .withMessage(`Author ${authorLengthErr}`),
+    .isLength({ min: 1, max: 30 })
+    .withMessage(`Username ${authorLengthErr}`),
   body("text")
     .trim()
     .isLength({ max: 200 })
@@ -31,9 +33,16 @@ const validateMessages = [
 
 exports.messagesListGet = async (req, res) => {
   const messages = await getMessages();
+  // Format timestamp for message board display
+
+  // REMINDER - Uses a spread operator to spread all the properties of the msg object into the new object.
+  const formattedMessages = messages.map((msg) => ({
+    ...msg,
+    added: formatDate(msg.added),
+  }));
   res.render("index", {
     title: "Main Board",
-    messages,
+    messages: formattedMessages,
     sessionID: req.sessionID,
   });
 };

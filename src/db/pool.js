@@ -11,8 +11,8 @@ const pool = new Pool({
   password: process.env.PG_PASSWORD,
   port: Number(process.env.PG_PORT),
 
-  max: 10,                     // max clients in pool
-  idleTimeoutMillis: 30000,    // close idle clients after 30 seconds
+  max: 10, // max clients in pool
+  idleTimeoutMillis: 30000, // close idle clients after 30 seconds
   connectionTimeoutMillis: 5000,
 
   // SSL only in production (Render/Heroku/Railway require this)

@@ -15,7 +15,8 @@
   --board-color: #6c5a20;
   --card-color: #afafc7;
   --hover-color: #a27d02;
-  --focus-color: #1d3f96;
+  --focus-color: #039ff2;
+  --error-color: #a31919;
 }
 
 * {
@@ -121,7 +122,7 @@ a:focus-visible,
 input:focus-visible,
 textarea:focus-visible,
 button:focus-visible {
-  outline: 0.25rem dashed var(--focus-color);
+  outline: 0.125rem dashed var(--focus-color);
 }
 
 .main-board,
@@ -235,6 +236,24 @@ label {
   font-weight: 600;
 }
 
+.errors,
+ul {
+  height: fit-content;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+  margin: 0.25rem 0 0 0.25rem;
+}
+
+.errors li {
+  color: var(--error-color);
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
 /* font-sizes master for certain elements */
 a,
 /* .user-name, */
@@ -271,6 +290,6 @@ footer {
     flex-direction: column;
   }
   .page-title {
-  font-size: 1.125rem;
-}
+    font-size: 1.125rem;
+  }
 }

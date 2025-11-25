@@ -23,7 +23,6 @@ app.use(
   })
 );
 
-
 // View Engine
 // Set the views directory (since views is inside the src folder)
 // app.set("views", path.join(__dirname, "views"));

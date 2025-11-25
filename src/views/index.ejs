@@ -5,8 +5,8 @@
     <%- include('./partials/nav.ejs') %>
     <div class="main-board">
       <h2 class="page-title">Main Board - Latest Messages</h2>
-      <%# if (messages.length > 0) { %> <%# messages.forEach(item => { %>
-      <% if (messages) { %> <% messages.forEach(item => { %>
+      <%# if (messages.length > 0) { %> <%# messages.forEach(item => { %> <% if
+      (messages) { %> <% messages.forEach(item => { %>
       <div class="message-cards">
         <!-- <h3 class="user-name"><%#= item.user %></h3> -->
         <h3 class="author-name"><%= item.author %></h3>
@@ -26,7 +26,7 @@
               <p class="likes-number"><%= item.likes %></p>
             </button> -->
             <!-- Below is better code... -->
-             <button>
+            <button>
               <span><%= item.likes > 0 ? "💙" : "🤍" %></span>
               &nbsp;
               <span class="likes-number"><%= item.likes %></span>

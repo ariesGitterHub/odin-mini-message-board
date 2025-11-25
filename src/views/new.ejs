@@ -5,8 +5,11 @@
     <%- include('./partials/nav.ejs') %>
     <div class="new-posting">
       <h2 class="page-title">New Posting - Create Message</h2>
-      <form class="new-posting-form" method="POST" action="/">
-        <label for="author">Name</label>
+      <!-- <form class="new-posting-form" method="POST" action="/"> -->
+        <!-- Above routes changed to below when I switched to PostgreSQL db -->
+        <form class="new-posting-form" method="POST" action="/new">
+        <%- include('./partials/errors.ejs') %>
+        <label for="author">Username</label>
         <input type="text" id="author" name="author" placeholder="Enter your username..." required />
         <label for="text">Message</label>
         <textarea type="text" id="text" name="text" placeholder="Enter your message..."required></textarea>
@@ -14,6 +17,6 @@
       </form>
       </div>
     </div>
-    <%- include('./partials/footer.ejs') %>
+    <%- include('./partials/footer.ejs') %> 
   </body>
 </html>

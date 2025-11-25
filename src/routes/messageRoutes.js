@@ -11,7 +11,8 @@ messageRouter.get("/new", messageController.addMessageGet);
 messageRouter.post("/new", messageController.addMessagePost);
 
 // Delete message
-messageRouter.post("/:id/delete", messageController.deleteMessagePost);
+//Not needed on this project
+// messageRouter.post("/:id/delete", messageController.deleteMessagePost);
 
 // // Like / Unlike message
 messageRouter.post("/like/:id", messageController.toggleLikePost);

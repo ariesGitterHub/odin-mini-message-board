@@ -4,9 +4,7 @@ const pool = require("./pool");
 
 // --- Get all users ---
 async function getMessages() {
-  const { rows } = await pool.query(
-    "SELECT * FROM message_table ORDER BY id"
-  );
+  const { rows } = await pool.query("SELECT * FROM message_table ORDER BY id");
   return rows;
 }
 
@@ -49,9 +47,9 @@ async function addMessage({ author, added, text, likes, liked_by }) {
 // }
 
 // --- Delete a user by id ---
-async function deleteMessage(id) {
-  await pool.query("DELETE FROM message_table WHERE id = $1", [id]);
-}
+// async function deleteMessage(id) {
+//   await pool.query("DELETE FROM message_table WHERE id = $1", [id]);
+// }
 
 // --- Search users by optional fields (see fields below) ---
 //  THIS IS NEW CODE, and better than doing search in usersController.js, see that file for old search code
@@ -119,7 +117,7 @@ module.exports = {
   //   getMessage,
   addMessage,
   //   updateMessage,
-  deleteMessage,
+  // deleteMessage,
   //   searchMessages,
   getMessageById,
   updateLikes,
