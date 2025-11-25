@@ -161,7 +161,8 @@ button:focus-visible {
   transform: scale(1.05);
 }
 
-.user-name,
+/* .user-name, */
+.author-name,
 label {
   margin-bottom: 0.125rem;
 }
@@ -227,7 +228,8 @@ footer {
   font-family: var(--font-title);
 }
 
-.user-name,
+/* .user-name, */
+.author-name,
 input,
 label {
   font-weight: 600;
@@ -235,7 +237,8 @@ label {
 
 /* font-sizes master for certain elements */
 a,
-.user-name,
+/* .user-name, */
+.author-name,
 label,
 button, 
 .bottom-card-items {
@@ -248,7 +251,7 @@ button,
 
 .text-message,
 input,
-textarea, er,
+textarea,
 footer {
   font-size: 1.125rem;
 }

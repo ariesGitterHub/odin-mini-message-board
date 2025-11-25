@@ -5,11 +5,13 @@
     <%- include('./partials/nav.ejs') %>
     <div class="main-board">
       <h2 class="page-title">Main Board - Latest Messages</h2>
-      <% if (messages.length > 0) { %> <% messages.forEach(item => { %>
+      <%# if (messages.length > 0) { %> <%# messages.forEach(item => { %>
+      <% if (messages) { %> <% messages.forEach(item => { %>
       <div class="message-cards">
-        <h3 class="user-name"><%= item.user %></h3>
+        <!-- <h3 class="user-name"><%#= item.user %></h3> -->
+        <h3 class="author-name"><%= item.author %></h3>
         <p class="added-when"><%= item.added %></p>
-        <p class="id-order">Msg#: <%= item.id + 1 %></p>
+        <!-- <p class="id-order">Msg#: <%#= item.id + 1 %></p> -->
         <hr />
         <p class="text-message"><%= item.text %></p>
         <div class="bottom-card-items">
